@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="cal.css">
+</head>
+<body>
+    <div class="outer">
+        <div class="cal">
+            <form>
+                <div class="screen">
+                    <input type="text" name="screen" id="screen" placeholder="0">
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick="clearScreen()">
+                    <input type="button" value="CLR" onclick="clearLast()">
+                    <input type="button" value="." onclick="appendOperator('.')">
+                    <input type="button" value="/" onclick="appendOperator('/')">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="appendSymbol('7')">
+                    <input type="button" value="8" onclick="appendSymbol('8')">
+                    <input type="button" value="9" onclick="appendSymbol('9')">
+                    <input type="button" value="*" onclick="appendOperator('*')">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="appendSymbol('4')">
+                    <input type="button" value="5" onclick="appendSymbol('5')">
+                    <input type="button" value="6" onclick="appendSymbol('6')">
+                    <input type="button" value="-" onclick="appendOperator('-')">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="appendSymbol('1')">
+                    <input type="button" value="2" onclick="appendSymbol('2')">
+                    <input type="button" value="3" onclick="appendSymbol('3')">
+                    <input type="button" value="+" onclick="appendOperator('+')">
+                </div>
+                <div>
+                    <input type="button" value="00" onclick="appendSymbol('00')">
+                    <input type="button" value="0" onclick="appendSymbol('0')">
+                    <input type="button" value="=" class="equal" onclick="calculate()">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const screen = document.getElementById("screen");
+            let lastEntryIsOperator = false;
+
+            const clearScreen = () => {
+                screen.value = '';
+            };
+
+            const clearLast = () => {
+                screen.value = screen.value.toString().slice(0, -1);
+            };
+
+            const appendSymbol = (symbol) => {
+                if (lastEntryIsOperator) {
+                    screen.value += '' + symbol;
+                    lastEntryIsOperator = false;
+                } else {
+                    screen.value += symbol;
+                }
+            };
+
+            const appendOperator = (operator) => {
+                if (!lastEntryIsOperator) {
+                    screen.value += operator;
+                    lastEntryIsOperator = true;
+                }
+            };
+
+            const calculate = () => {
+                try {
+                    screen.value = eval(screen.value);
+                } catch (error) {
+                    screen.value = '';
+                }
+            };
+
+            const buttons = document.querySelectorAll(".cal input[type='button']");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const value = button.value;
+                    if (value === "AC") clearScreen();
+                    else if (value === "CLR") clearLast();
+                    else if (value === "=") calculate();
+                    else if (lastEntryIsOperator && (value === '+' || value === '-' || value === '*' || value === '/'|| value==='.')) {
+                        // Do nothing for consecutive operators
+                    } else if (value === '+' || value === '-' || value === '*' || value === '/' || value==='.') {
+                        appendOperator(value);
+                    } else {
+                        appendSymbol(value);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
