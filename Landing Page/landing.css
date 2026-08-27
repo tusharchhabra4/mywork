@@ -1,0 +1,122 @@
+body
+{
+    margin: 0%;
+    background-image: url(https://e0.pxfuel.com/wallpapers/149/259/desktop-wallpaper-web-development.jpg);
+    height: 100vh;
+    width: 100%;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+nav
+{
+    width: 30%;
+    margin: 2%;
+    margin-left: -2%;
+    align-items: center;
+    justify-content: space-between;
+}
+nav ul li
+{    
+    display: flex;
+    list-style: none; 
+    margin: 5px;
+    padding: 5px;
+}
+nav ul li a 
+{
+    padding: 5px;
+    margin: 50px;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: larger;
+    word-spacing: 100px;
+}
+nav ul li a:hover
+{
+    position: relative;
+    padding: 5px;
+    background-color: aliceblue;
+    color: black;
+    border-radius: 4px;
+    text-align: center;
+}
+#box
+{
+    background-color: aliceblue;
+    color: black;
+    padding: 5px;
+    border-radius: 4px;
+}
+h1
+{
+    margin-top: 62%;
+    font-size: 30px;
+}
+span
+{
+    color: rgb(213, 205, 205);
+}
+.header
+{
+    margin: 2%;
+    width: 20%;
+    float: left;
+}
+.center
+{
+    margin: 0%;
+    float: left;
+    width: 30%;
+    height: 90vh;
+    text-align: center;
+    color: aliceblue;
+}
+button
+{
+    background-color: rgb(139, 137, 137);
+    color: black;
+    font-size: larger;
+    padding: 8px;
+    border-radius: 10px;
+    border: 0%;
+    text-decoration: none;
+}
+button:hover
+{
+   background-color: black;
+   color: rgb(169, 155, 155); 
+
+}
+#a
+{
+    font-size: small;
+    text-align: center;
+}
+p
+{
+    font-size: larger;
+}
+.point
+{
+    margin-top: 10%;
+    margin: 0%;
+    float: left;
+    width: 40%;
+    height: 90vh;
+    text-align: center;
+}
+img
+{
+    height: 72vh;
+    width: 150%;
+   margin-top:40%;
+   margin-left: -30%;
+    padding: 1%;
+    border-radius: 50px;
+}
+a
+{
+     color: aliceblue;
+     text-decoration: none;
+}
